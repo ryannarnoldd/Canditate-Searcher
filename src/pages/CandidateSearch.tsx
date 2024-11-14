@@ -6,7 +6,6 @@ import CandidateCard from '../components/CandidateCard';
 const CandidateSearch = () => {
   const [currentCandidate, setCurrentCandidate] = useState<Candidate>(
   {
-    login: '',
     image: '',
     name: '',
     username: '',
@@ -34,15 +33,14 @@ const CandidateSearch = () => {
     console.log(candidate);
     const user = await searchGithubUser(candidate.login);
     setCurrentCandidate({
-      login: user.login,
-      image: user.avatar_url,
-      name: user.name,
-      username: user.login,
-      location: user.location,
-      email: user.email,
-      company: user.company,
-      bio: user.bio,
-    });
+          image: user.avatar_url,
+          name: user.name,
+          username: user.login,
+          location: user.location,
+          email: user.email,
+          company: user.company,
+          bio: user.bio,
+        });
   };
 
   return (

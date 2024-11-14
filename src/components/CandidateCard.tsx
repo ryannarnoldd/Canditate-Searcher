@@ -12,12 +12,11 @@ const CandidateCard = ({
   addToSavedCandidates,
   rejectCandidate,
 }: CandidateCardProps) => {
-    console.log(currentCandidate);
+    console.log(currentCandidate !== null);
   return (
     <>
-    {currentCandidate.login ? (
+    {currentCandidate.name ? (
       <div className="card">
-        <img src={currentCandidate.image} alt={currentCandidate.name} />
         <div className="card-body">
           <h2>{currentCandidate.name}</h2>
           <p>{currentCandidate.location}</p>
@@ -33,7 +32,7 @@ const CandidateCard = ({
         </div>
       </div>
     ):
-    <div className="card">
+    <div className="card this">
         <h2>No candidate found</h2>
     </div>
     }
