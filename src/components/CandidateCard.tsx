@@ -12,30 +12,51 @@ const CandidateCard = ({
   addToSavedCandidates,
   rejectCandidate,
 }: CandidateCardProps) => {
-    console.log(currentCandidate !== null);
   return (
+    // If there is no currentCandidate, return a message.
+    // Otherwise, return the candidate card.
     <>
-    {currentCandidate.name ? (
-      <div className="card">
-        <div className="card-body">
-          <h2>{currentCandidate.name}</h2>
-          <p>{currentCandidate.location}</p>
-          <p>{currentCandidate.email}</p>
-          <p>{currentCandidate.company}</p>
-          <p>{currentCandidate.bio}</p>
-          {addToSavedCandidates && (
-            <button onClick={addToSavedCandidates}>Save Candidate</button>
-          )}
-          {rejectCandidate && (
-            <button onClick={rejectCandidate}>Reject Candidate</button>
-          )}
-        </div>
-      </div>
-    ):
-    <div className="card this">
-        <h2>No candidate found</h2>
-    </div>
-    }
+        {currentCandidate.name === '' ? (
+            <h2>No candidate to show</h2>
+        ) : (
+            <div className="card">
+            <img src={currentCandidate.avatar_url} alt={currentCandidate.name} width="200" height="200" />
+            <div className="info">
+                <h2>{currentCandidate.name}</h2>
+                {/* If each value is not null, then diplsay it. */}
+                
+                {currentCandidate.login && 
+                    (<p><strong>Username:</strong> {currentCandidate.login}</p>
+                )}
+
+                {currentCandidate.location && 
+                    (<p><strong>Location:</strong> {currentCandidate.location}</p>
+                )}
+
+                {currentCandidate.email && 
+                    (<p><strong>Email:</strong> {currentCandidate.email}</p>
+                )}
+
+                {currentCandidate.company && 
+                    (<p><strong>Company:</strong> {currentCandidate.company}</p>
+                )}
+
+                {currentCandidate.bio && 
+                    (<p><strong>Bio:</strong> {currentCandidate.bio}</p>
+                )}
+
+
+            </div>
+            <div className="buttons">
+                {addToSavedCandidates && (
+                <button onClick={addToSavedCandidates}>Save Candidate</button>
+                )}
+                {rejectCandidate && (
+                <button onClick={rejectCandidate}>Reject Candidate</button>
+                )}
+            </div>
+            </div>
+        )}
     </>
   );
 };

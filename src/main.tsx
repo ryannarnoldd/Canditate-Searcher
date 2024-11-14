@@ -7,6 +7,9 @@ import CandidateSearch from './pages/CandidateSearch.tsx';
 import SavedCandidates from './pages/SavedCandidates.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 
+// import bootstrap.
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const router = createBrowserRouter([
   {
     path: '/',
