@@ -16,7 +16,7 @@ const CandidateCard = ({
     // If there is no currentCandidate, return a message.
     // Otherwise, return the candidate card.
     <>
-        {currentCandidate.name === '' ? (
+        {!currentCandidate.name ? (
             <h2>No candidate to show</h2>
         ) : (
             <div className="card">
