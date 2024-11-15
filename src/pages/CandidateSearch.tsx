@@ -19,13 +19,13 @@ const CandidateSearch = () => {
     getRandomCandidate();
   }, []);
 
-  const addToSavedCandidates = async () => {
+  const addToSavedCandidates = () => {
     // Save the current candidate to the local Storage.
     const savedCandidates = JSON.parse(localStorage.getItem('SavedCandidates') || '[]');
     savedCandidates.push(currentCandidate);
     localStorage.setItem('SavedCandidates', JSON.stringify(savedCandidates));
 
-    await getRandomCandidate();
+    getRandomCandidate();
   };
 
   // Get a random candidate from the Github API.
